@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    </head>
+    <body>
+        <!-- <video src="https://raw.githubusercontent.com/AliaoJO1728/files/main/index_cur.m3u8" style="width: 100%; height: 100%;" controls></div> -->
+        <video id="video" controls></video>
+        <script>
+            if (Hls.isSupported()) {
+                var video = document.getElementById('video');
+                var hls = new Hls();
+                hls.loadSource('https://raw.githubusercontent.com/AliaoJO1728/files/main/index_cur.m3u8');
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    video.play();
+                });
+            }
+        </script>
+    </body>
+</html>
